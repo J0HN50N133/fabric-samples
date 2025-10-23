@@ -18,22 +18,23 @@ const OperationBase = require('../../caliper-benchmarks/benchmarks/scenario/simp
 
 /**
  * Workload module for querying the accumulator.
- */\class GetAccumulator extends OperationBase {
+ */
+class GetAccumulator extends OperationBase {
 
-    /**
-     * Initializes the parameters of the workload.
-     */
-    constructor() {
-        super();
-    }
+  /**
+   * Initializes the parameters of the workload.
+   */
+  constructor() {
+    super();
+  }
 
-    /**
-     * Assemble TXs for querying the accumulator.
-     */
-    async submitTransaction() {
-        const myArgs = {};
-        await this.sutAdapter.sendRequests(this.createConnectorRequest('GetAccumulator', myArgs));
-    }
+  /**
+   * Assemble TXs for querying the accumulator.
+   */
+  async submitTransaction() {
+    const myArgs = {};
+    await this.sutAdapter.sendRequests(this.createConnectorRequest('GetAccumulator', myArgs));
+  }
 }
 
 /**
@@ -41,7 +42,7 @@ const OperationBase = require('../../caliper-benchmarks/benchmarks/scenario/simp
  * @return {WorkloadModuleInterface}
  */
 function createWorkloadModule() {
-    return new GetAccumulator();
+  return new GetAccumulator();
 }
 
 module.exports.createWorkloadModule = createWorkloadModule;
