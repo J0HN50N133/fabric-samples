@@ -12,7 +12,7 @@ test:
         opts:
           transactionLoad: 5000
       workload:
-        module: asset-did-vc/bench/getAccumulator.js
+        module: asset-did-vc/bench-new/getAccumulator.js
     - label: updateAccumulator
       description: Test transaction performance of UpdateAccumulator.
       txNumber: 5000
@@ -21,4 +21,4 @@ test:
         opts:
           transactionLoad: 5000
       workload:
-        module: asset-did-vc/bench/updateAccumulator.js
+        module: asset-did-vc/bench-new/updateAccumulator.js

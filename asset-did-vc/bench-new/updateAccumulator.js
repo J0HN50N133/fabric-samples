@@ -14,6 +14,7 @@
 
 'use strict';
 
+const { createRequest } = require('./util.js');
 const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 const crypto = require('crypto');
 
@@ -27,6 +28,7 @@ class UpdateAccumulator extends WorkloadModuleBase {
    */
   constructor() {
     super();
+    this.createRequest = createRequest
   }
 
   /**
@@ -38,7 +40,7 @@ class UpdateAccumulator extends WorkloadModuleBase {
     const myArgs = {
       newDigestHex: newDigest
     };
-    await this.sutAdapter.sendRequests(createRequest('UpdateAccumulator', myArgs));
+    await this.sutAdapter.sendRequests(this.createRequest('UpdateAccumulator', myArgs));
   }
 }
 

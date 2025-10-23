@@ -14,7 +14,7 @@
 
 'use strict';
 
-const { createConnectorRequest } = require('./util.js');
+const { createRequest } = require('./util.js');
 const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
 /**
@@ -27,6 +27,7 @@ class GetAccumulator extends WorkloadModuleBase {
    */
   constructor() {
     super();
+    this.createRequest = createRequest
   }
 
   /**
@@ -34,7 +35,7 @@ class GetAccumulator extends WorkloadModuleBase {
    */
   async submitTransaction() {
     const myArgs = {};
-    await this.sutAdapter.sendRequests(createConnectorRequest('GetAccumulator', myArgs));
+    await this.sutAdapter.sendRequests(this.createRequest('GetAccumulator', myArgs));
   }
 }
 
