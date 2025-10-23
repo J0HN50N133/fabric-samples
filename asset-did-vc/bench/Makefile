@@ -13,7 +13,7 @@ test:
 	@cd ../../ && \
 	npx caliper launch manager \
 	--caliper-workspace . \
-	--caliper-networkconfig test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml \
+	--caliper-networkconfig asset-did-vc/bench/networkConfig.yaml \
 	--caliper-benchconfig asset-did-vc/bench/config.yaml \
 	--caliper-flow-only-test \
 	--caliper-fabric-gateway-enabled
