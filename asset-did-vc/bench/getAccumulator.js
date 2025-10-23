@@ -14,12 +14,13 @@
 
 'use strict';
 
-const OperationBase = require('../../caliper-benchmarks/benchmarks/scenario/simple/utils/operation-base');
+const { createConnectorRequest } = require('./util.js');
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
 /**
  * Workload module for querying the accumulator.
  */
-class GetAccumulator extends OperationBase {
+class GetAccumulator extends WorkloadModuleBase {
 
   /**
    * Initializes the parameters of the workload.
@@ -33,7 +34,7 @@ class GetAccumulator extends OperationBase {
    */
   async submitTransaction() {
     const myArgs = {};
-    await this.sutAdapter.sendRequests(this.createConnectorRequest('GetAccumulator', myArgs));
+    await this.sutAdapter.sendRequests(createConnectorRequest('GetAccumulator', myArgs));
   }
 }
 
