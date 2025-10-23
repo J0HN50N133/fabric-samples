@@ -1,0 +1,25 @@
+
+test:
+  name: asset-did-vc
+  description: Benchmark for the asset-did-vc chaincode.
+  workers:
+    number: 1
+  rounds:
+    - label: getAccumulator
+      description: Test query performance of GetAccumulator.
+      txNumber: 1000
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 100
+      workload:
+        module: asset-did-vc/bench/getAccumulator.js
+    - label: updateAccumulator
+      description: Test transaction performance of UpdateAccumulator.
+      txNumber: 500
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 50
+      workload:
+        module: asset-did-vc/bench/updateAccumulator.js
