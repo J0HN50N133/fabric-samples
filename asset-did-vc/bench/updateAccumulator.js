@@ -22,24 +22,24 @@ const crypto = require('crypto');
  */
 class UpdateAccumulator extends OperationBase {
 
-    /**
-     * Initializes the parameters of the workload.
-     */
-    constructor() {
-        super();
-    }
+  /**
+   * Initializes the parameters of the workload.
+   */
+  constructor() {
+    super();
+  }
 
-    /**
-     * Assemble TXs for updating the accumulator.
-     */
-    async submitTransaction() {
-        // Generate a random 32-byte hex string for the new digest
-        const newDigest = crypto.randomBytes(32).toString('hex');
-        const myArgs = {
-            newDigestHex: newDigest
-        };
-        await this.sutAdapter.sendRequests(this.createConnectorRequest('UpdateAccumulator', myArgs));
-    }
+  /**
+   * Assemble TXs for updating the accumulator.
+   */
+  async submitTransaction() {
+    // Generate a random 32-byte hex string for the new digest
+    const newDigest = crypto.randomBytes(32).toString('hex');
+    const myArgs = {
+      newDigestHex: newDigest
+    };
+    await this.sutAdapter.sendRequests(this.createConnectorRequest('UpdateAccumulator', myArgs));
+  }
 }
 
 /**
@@ -47,7 +47,7 @@ class UpdateAccumulator extends OperationBase {
  * @return {WorkloadModuleInterface}
  */
 function createWorkloadModule() {
-    return new UpdateAccumulator();
+  return new UpdateAccumulator();
 }
 
 module.exports.createWorkloadModule = createWorkloadModule;
