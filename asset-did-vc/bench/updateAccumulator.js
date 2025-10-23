@@ -14,13 +14,13 @@
 
 'use strict';
 
-const OperationBase = require('../../caliper-benchmarks/benchmarks/scenario/simple/utils/operation-base');
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 const crypto = require('crypto');
 
 /**
  * Workload module for updating the accumulator.
  */
-class UpdateAccumulator extends OperationBase {
+class UpdateAccumulator extends WorkloadModuleBase {
 
   /**
    * Initializes the parameters of the workload.
@@ -38,7 +38,7 @@ class UpdateAccumulator extends OperationBase {
     const myArgs = {
       newDigestHex: newDigest
     };
-    await this.sutAdapter.sendRequests(this.createConnectorRequest('UpdateAccumulator', myArgs));
+    await this.sutAdapter.sendRequests(createRequest('UpdateAccumulator', myArgs));
   }
 }
 
