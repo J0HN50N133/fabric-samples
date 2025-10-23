@@ -30,6 +30,11 @@ class GetAccumulator extends WorkloadModuleBase {
     this.createRequest = createRequest
   }
 
+  async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+    await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
+    await this.sutAdapter.sendRequests(this.createRequest('InitLedger', {}));
+  }
+
   /**
    * Assemble TXs for querying the accumulator.
    */

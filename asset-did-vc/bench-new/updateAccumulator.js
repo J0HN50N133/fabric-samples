@@ -30,6 +30,10 @@ class UpdateAccumulator extends WorkloadModuleBase {
     super();
     this.createRequest = createRequest
   }
+  async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+    await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
+    await this.sutAdapter.sendRequests(this.createRequest('InitLedger', {}));
+  }
 
   /**
    * Assemble TXs for updating the accumulator.
