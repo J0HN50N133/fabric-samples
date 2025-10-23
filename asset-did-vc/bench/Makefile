@@ -6,14 +6,13 @@ all: install test
 
 # Installs caliper-cli
 install:
-	@npm install --prefix ../../caliper-benchmarks @hyperledger/caliper-cli@0.5.0
+	@pnpm install
 
 # Runs the benchmark
 test:
-	@cd ../../ && \
-	npx caliper launch manager \
-	--caliper-workspace . \
-	--caliper-networkconfig asset-did-vc/bench/networkConfig.yaml \
-	--caliper-benchconfig asset-did-vc/bench/config.yaml \
+	pnpm exec caliper launch manager \
+	--caliper-workspace ../../ \
+	--caliper-networkconfig asset-did-vc/bench-new/networkConfig.yaml \
+	--caliper-benchconfig asset-did-vc/bench-new/config.yaml \
 	--caliper-flow-only-test \
 	--caliper-fabric-gateway-enabled

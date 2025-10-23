@@ -1,9 +1,9 @@
 'use strict';
 
 function createRequest(operation, args) {
-  const query = operation === 'query';
+  const query = operation === 'GetAccumulator';
   return {
-    contractId: this.roundArguments.contractId,
+    contractId: 'basic',
     contractVersion: '1.0',
     contractFunction: operation,
     contractArguments: Object.keys(args).map(k => args[k].toString()),

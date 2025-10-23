@@ -5,9 +5,9 @@ caliper:
   blockchain: fabric
 
 channels:
-  - channelName: channels
+  - channelName: mychannel
     contracts:
-    - id: did
+    - id: basic
 
 organizations:
   - mspid: Org1MSP
@@ -20,4 +20,4 @@ organizations:
           path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
     connectionProfile:
       path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml'
-
+      discover: true
